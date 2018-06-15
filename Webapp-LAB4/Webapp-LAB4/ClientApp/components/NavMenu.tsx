@@ -28,7 +28,7 @@ export class NavMenu extends React.Component<{}, {}> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/fetchdata' } activeClassName='active'>
+                            <NavLink to={ '/manageQuestions' } activeClassName='active'>
                                 <span className='glyphicon glyphicon-edit'></span> Administrera frågor
                             </NavLink>
                         </li>

@@ -7,14 +7,14 @@ import * as WeatherForecasts from '../store/WeatherForecasts';
 
 export default class Highscore extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
-        return <div className='contaner'>
+        return <div className='contaner-fluid'>
             <div className='row'>
-                <div className='col-7'>
+                <div className='col-xs-5'>
                     <h1>Highscore</h1>
                 </div>
             </div>
             <div className='row'>
-                <div className='col-7'>
+                <div className='col-sx-5'>
                     <table className='table'>
                         <thead>
                             <tr>

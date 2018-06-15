@@ -4,9 +4,8 @@ import { RouteComponentProps } from 'react-router-dom';
 export default class Home extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
         return <div className='container-fluid'>
-            <div className='row'>
-                hkugjhfgcb
-                <div className='col-sm-6'>
+            <div className='row justify-content-center'>
+                <div className='col-xs-5'>
                     <h1>Quiz!</h1>
                     <div>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
