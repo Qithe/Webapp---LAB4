@@ -7,14 +7,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Webapp_LAB4.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Webapp_LAB4
 {
     public class Startup
     {
+        private IConfiguration _configuration { get; set; }
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
             Console.WriteLine("Hello World!");
         }
 
@@ -24,6 +27,9 @@ namespace Webapp_LAB4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            string cs = _configuration.GetConnectionString("The_Right_String");
+            services.AddDbContext<TheContext>(options =>
+                options.UseSqlServer(cs));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

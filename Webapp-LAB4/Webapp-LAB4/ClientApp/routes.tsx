@@ -4,8 +4,10 @@ import { Layout } from './components/Layout';
 import Home from './components/Home';
 import FetchData from './components/FetchData';
 import Highscore from './components/Highscore';
+import CreateUser from './components/CreateUser';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
-    <Route path='/highscore' component={ Highscore } />
+    <Route path='/highscore' component={Highscore} />
+    <Route path='/createuser' component={CreateUser} />
 </Layout>;
