@@ -7,14 +7,18 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Webapp_LAB4.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Webapp_LAB4
 {
     public class Startup
     {
+        private IConfiguration _configuration { get; set; }
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            Console.WriteLine("Hello World!");
         }
 
         public IConfiguration Configuration { get; }
@@ -22,14 +26,10 @@ namespace Webapp_LAB4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
             services.AddMvc();
+            string cs = _configuration.GetConnectionString("The_Right_String");
+            services.AddDbContext<TheContext>(options =>
+                options.UseSqlServer(cs));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
